@@ -1,12 +1,11 @@
 package com.stream.javastream.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.procedure.ProcedureOutputs;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,5 +20,22 @@ public class Order {
         private LocalDate orderDate;
         private LocalDate deliveryDate;
         private OrderStatus status;
+
+        @ManyToOne
+        @JoinColumn(name = "customer_id", nullable = false)
+        private Customer customer;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "order_product_relationship",
+            joinColumns = { @JoinColumn(name = "order_id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+    )
+    @ToString.Exclude
+     Set<Product> products;
+
+
+
 
         }
