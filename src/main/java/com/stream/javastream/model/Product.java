@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "product_Table")
@@ -20,5 +22,8 @@ public class Product {
     private String name;
     @Column(name = "product_price")
     private Double price;
+
+    @ManyToMany(mappedBy ="products")
+    private Set<Order> orders;
 
 }
