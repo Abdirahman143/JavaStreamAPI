@@ -1,10 +1,11 @@
 package com.stream.javastream.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,4 +22,7 @@ public class Product {
     @Column(name = "product_price")
     private Double price;
 
+//    @ManyToMany(mappedBy = "products")
+//    @ToString.Exclude
+//     private Set<Order> orders= new LinkedHashSet<>();
 }
