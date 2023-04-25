@@ -20,6 +20,8 @@ public class Product {
     private Long id;
     @Column(name = "product_name")
     private String name;
+    @Column(name = "product_category")
+    private String category;
     @Column(name = "product_price")
     private Double price;
 
