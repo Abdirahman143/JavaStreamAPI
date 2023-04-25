@@ -1,10 +1,12 @@
 package com.stream.javastream.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.LinkedHashSet;
+
+import java.util.Set;
+
 import java.util.Set;
 
 @Data
@@ -19,10 +21,14 @@ public class Product {
     private Long id;
     @Column(name = "product_name")
     private String name;
+    @Column(name = "product_category")
+    private String category;
     @Column(name = "product_price")
     private Double price;
 
-//    @ManyToMany(mappedBy = "products")
-//    @ToString.Exclude
-//     private Set<Order> orders= new LinkedHashSet<>();
+
+    @ManyToMany(mappedBy ="products")
+    private Set<Order> orders;
+
+
 }
