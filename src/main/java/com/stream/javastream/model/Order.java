@@ -3,8 +3,9 @@ package com.stream.javastream.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.time.LocalDate;
-import java.util.List;
+
 import java.util.Set;
 
 @Data
@@ -22,6 +23,7 @@ public class Order {
         private OrderStatus status;
 
         @ManyToOne
+
         @JoinColumn(name = "customer_fk_id", nullable = false )
       private Customer customer;
 
@@ -33,5 +35,10 @@ public class Order {
         )
         @ToString.Exclude
     private Set<Product> products;
+
+      
+
+
+
 
         }

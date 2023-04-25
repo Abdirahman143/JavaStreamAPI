@@ -1,10 +1,11 @@
 package com.stream.javastream.model;
 
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+
+import java.util.Set;
 
 import java.util.Set;
 
@@ -25,7 +26,9 @@ public class Product {
     @Column(name = "product_price")
     private Double price;
 
+
     @ManyToMany(mappedBy ="products")
     private Set<Order> orders;
+
 
 }
